@@ -1,0 +1,94 @@
+<!-- views/signup.ejs -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Node Authentication</title>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="page-header text-center">
+                <h1><span class="fa fa-anchor"> Profile Page</span></h1>
+                <a href="/logout" class="btn btn-defualt btn-sm">Logout</a>
+            </div>
+            <div class="row">
+
+                <!-- local user  -->
+                <div class="well">
+                    <h3><span class="fa fa-user"> Local</span></h3>
+
+                    <% if (user.local.email) { %>
+                        <p>
+                            <strong>id</strong>: <%= user._id %><br>
+                            <strong>email</strong>: <%= user.local.email %><br>
+                            <strong>password</strong>: <%= user.local.password %><br>
+                        </p>
+                        <a href="/unlink/local" class="btn btn-default">Unlink</a>
+                    <% } else { %>
+                        <a href="/connect/local" class="btn btn-default">Connect Local</a>
+                    <% } %>
+                </div>
+
+                <!-- facebook user -->
+                <div class="col-sm-6">
+                    <div class="well">
+                        <h3 class="text-primary"><span class="fa fa-facebook"> Facebook</span></h3>
+                        <% if (user.facebook.token) { %>
+                            <p>
+                                <strong>id</strong>: <%= user.facebook.id %><br>
+                                <strong>token</strong>: <%= user.facebook.token %><br>
+                                <strong>email</strong>: <%= user.facebook.email %><br>
+                                <strong>name</strong>: <%= user.facebook.name %><br>
+                            </p>
+                            <a href="/unlink/facebook" class="btn btn-default">Unlink</a>
+                        <% } else { %>
+                            <a href="/connect/facebook" class="btn btn-default">Connect Facebook</a>
+                        <% } %>
+                    </div>
+                </div>
+
+                <!-- twitter user -->
+                <div class="col-sm-6">
+                    <div class="well">
+                        <h3 class="text-primary"><span class="fa fa-twitter"> Twitter</span></h3>
+                        <% if (user.twitter.token) { %>
+                            <p>
+                                <strong>id</strong>: <%= user.twitter.id %><br>
+                                <strong>token</strong>: <%= user.twitter.token %><br>
+                                <strong>display name</strong>: <%= user.twitter.displayName %><br>
+                                <strong>username</strong>: <%= user.twitter.username %><br>
+                            </p>
+                            <a href="/unlink/twitter" class="btn btn-default">Unlink</a>
+                        <% } else { %>
+                            <a href="/connect/twitter" class="btn btn-default">Connect Twitter</a>
+                        <% } %>
+                    </div>
+                </div>
+
+            <!-- GOOGLE INFORMATION -->
+            <div class="col-sm-6">
+                <div class="well">
+                    <h3 class="text-danger"><span class="fa fa-google-plus"></span> Google</h3>
+                    <% if (user.google.token) { %>
+                        <p>
+                            <strong>id</strong>: <%= user.google.id %><br>
+                            <strong>token</strong>: <%= user.google.token %><br>
+                            <strong>email</strong>: <%= user.google.email %><br>
+                            <strong>name</strong>: <%= user.google.name %><br>
+                        </p>
+                        <a href="/unlink/google" class="btn btn-default">Unlink</a>
+                    <% } else { %>
+                        <a href="/connect/google" class="btn btn-default">Connect Google</a>
+                    <% } %>
+                </div>
+            </div>
+
+
+
+            </div>
+        </div>
+    </body>
+</html>

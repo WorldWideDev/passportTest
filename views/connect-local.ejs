@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<!-- views/connect-local.ejs -->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Node Authentication</title>
+        <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/css/style.css">
+    </head>
+    <body>
+        <div class="container">
+            <div class="col-sm-6 col-sm-offset-3">
+                <h1><span class="fa fa-sign-in"></span> Connect</h1>
+
+                <!-- show flash messages for authenticaish validaish -->
+                <% if (message.length > 0) { %>
+                    <div class="alert alert-danger"><%= message %></div>
+                <% } %>
+
+                <!-- LOGIN FORM -->
+                <form class="" action="/connect/local" method="post">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="text" name="email" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" name="password">
+                    </div>
+
+                    <button type="submit" class="btn btn-warning btn-lg">Add Local</button>
+                </form>
+                <hr>
+                <p><a href="/profile">Go back to profile...</a></p>
+            </div>
+        </div>
+    </body>
+</html>
